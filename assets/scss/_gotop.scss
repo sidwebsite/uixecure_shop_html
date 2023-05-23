@@ -1,0 +1,32 @@
+.gotop {
+	position: fixed;
+	bottom: 45px;
+	right: -50px;
+	color: var(--gray-700);
+	background-color: var(--primary-50);
+	display: block;
+	z-index: 100;
+	width: 48px;
+	height: 48px;
+    border-radius: 4px;
+    opacity: 0.6;
+    font-size: toRem(20px);
+    transition: var(--base-transition);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+        opacity: 1;
+    }
+    &.show {
+        right: 15px;
+        opacity: 1;
+        animation-name: fade;
+        animation-duration: 1s;
+    }
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}  

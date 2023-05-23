@@ -1,0 +1,24 @@
+@mixin circle($size, $left, $top, $color, $opacity, $blur) {
+    content: "";
+    position: absolute;
+    width: $size;
+    height: $size;
+    left: $left;
+    top: $top;
+    background: var($color);
+    border-radius: 50%;
+    opacity: $opacity;
+    filter: blur($blur);
+}
+@mixin circle-new($size, $left, $top, $color, $opacity) {
+    content: "";
+    position: absolute;
+    width: $size;
+    height: $size;
+    left: $left;
+    top: $top;
+    background: radial-gradient(var($color), transparent 70%);
+    border-radius: 50%;
+    opacity: $opacity;
+    // filter: blur($blur);
+}

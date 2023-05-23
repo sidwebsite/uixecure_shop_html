@@ -1,0 +1,11 @@
+.status {
+    padding: 4px 8px;
+    color: var(--white);
+    border-radius: 4px;
+    font-weight: $font-weight-bold;
+    @each $key , $value in $status {
+        &.status-#{$key} {
+            background-color: $value;
+        }
+    }
+}

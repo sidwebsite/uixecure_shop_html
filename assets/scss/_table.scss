@@ -1,0 +1,36 @@
+.table {
+    width: 100%;
+    color: var(--gray-800);
+    border: 1px solid var(--gray-200);    
+    caption-side: bottom;
+    border-collapse: collapse;    
+    > :not(caption) > * > * {
+        padding: $table-cell-padding-y $table-cell-padding-x;
+    }
+    > tbody {
+        vertical-align: inherit;
+    }
+    > thead {
+    vertical-align: bottom;
+    }
+    > thead {
+        > tr {
+            background-color: var(--gray-50);            
+            > th {
+                border-bottom: 1px solid var(--gray-200);
+                font-size: toRem(16px);
+            }
+        }        
+    }
+    > tbody > tr {
+        background-color: var(--white);
+        transition: var(--base-transition);
+        > td {
+            text-align: center;
+            vertical-align: middle;
+        }
+        &:hover {
+            background-color: var(--gray-50);
+        }
+    }
+}

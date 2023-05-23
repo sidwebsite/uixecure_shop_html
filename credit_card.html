@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uixecure會員入口網</title>
+    <!-- css -->
+    <link rel="stylesheet" href="./assets/css/style.min.css">
+</head>
+<body>
+    <!-- header starts -->
+    <header class="header bg-gray-800">
+        <nav class="d-flex align-items-center">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="./assets/images/logo.png" alt="uixecure會員網logo">
+                </a>
+            </div>
+            <div class="navbar d-flex justify-content-between">
+                <ul>
+                    <li><a href="https://www.unixecure.com/tw/index" target="_blank">智慧資安入口網</a></li>
+                    <li><a href="#">儀表板</a></li>
+                    <li><a href="product_solutions.html">產品方案列表</a></li>
+                    <li><a href="product_forum.html">產品問題討論</a></li>
+                </ul>
+                <div class="sign-in">
+                    <a href="member.html" class="link-member mr-3"><i class="fa-solid fa-user"></i> 會員中心</a>
+                    <a href="shopping_list.html" class="text-white mr-3"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="#" class="text-white"><i class="fa-solid fa-right-from-bracket"></i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- header ends -->
+    <!-- content starts -->
+    <section class="content shopping-bg">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="shopping-container">                        
+                        <form action="">
+                            <h3 class="mb-4">信用卡付款資訊</h3>
+                            <p class="mb-3">已使用此信箱登入：aimigio@unixecure.com <a href="#" class="link-status-primary">變更</a></p>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <!-- 持卡人姓名 -->
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">持卡人姓名</label>
+                                        <div class="input-group flex-nowrap">
+                                            <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                                            <input type="text" class="form-control" id="" placeholder="請輸入持卡人姓名" />
+                                        </div>
+                                    </div>
+                                    <!--信用卡號碼  -->
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">信用卡號碼</label>
+                                        <div class="input-group flex-nowrap">
+                                            <span class="input-group-text"><i class="fa-solid fa-credit-card"></i></span>
+                                            <input type="text" class="form-control" id="" placeholder="請輸入信用卡號碼" />
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <!-- 到期日 -->
+                                        <div class="col-md-6">
+                                            <label for="" class="form-label">到期日</label>
+                                            <div class="input-group flex-nowrap">
+                                                <span class="input-group-text"><i class="fa-solid fa-calendar-days"></i></span>
+                                                <input type="text" class="form-control" id="" placeholder="ＭＭ/YY" />
+                                            </div>
+                                        </div>
+                                        <!-- 安全碼 -->
+                                        <div class="col-md-6">
+                                            <label for="" class="form-label">安全碼</label>
+                                            <div class="input-group flex-nowrap">
+                                                <span class="input-group-text"><i class="fa-solid fa-credit-card-blank"></i></span>
+                                                <input type="text" class="form-control" id="" placeholder="CVC" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h3 class="md-3">發票開立方式</h3>
+                                    <div class="row  align-items-center">
+                                        <div class="col-auto">
+                                            <div class="form-check mb-3">
+                                                <input class="form-check-input" type="radio" value="個人發票" id="personal-invoice" name="invoice" />
+                                                <label class="form-check-label" for="personal-invoice">個人發票</label>
+                                            </div>
+                                        </div>                                        
+                                        <div class="col mb-3">
+                                            <div class="row align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" value="公司發票" id="company-invoice" name="invoice" />
+                                                        <label class="form-check-label" for="company-invoice">公司發票</label>                                                
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" id="" placeholder="請輸入統一編號" />
+                                                </div>
+                                            </div>
+                                        </div>                                                                             
+                                    </div>                                    
+                                </div>
+                            </div>                            
+                        </form>
+                    
+                        <a href="shopping_list.html" class="link-gray-500">返回購物車</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="shopping-container">
+                        <h3 class="mb-4">訂單明細</h3>
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <span class="fs-6">總計</span>
+                            <span class="text-primary fs-4 fw-bold">NT$10,000</span>                            
+                        </div>
+                        <p class="small mb-3 text-gray-400">完成購買程序代表您已同意 <a href="#" class="ml-3 fw-bold">會員服務條款</a></p>
+                        <button type="button" class="btn btn-fill-primary d-block w-100">結賬</button>
+                        <p class="small mt-3 text-gray-400 text-center">10 天退款保證</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- content ends -->
+    <!-- footer starts -->
+    <footer class="footer bg-gray-800">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center">
+                        <div class="mb-3">
+                            <img src="./assets/images/logo.png" alt="uixecure logo">
+                        </div>
+                        <div class="shart">
+                            <a href="https://www.youtube.com/channel/UC6VCxEoyhbVVuzyUY3hQmEA/featured" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/uniXecure/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex  flex-column flex-lg-row mb-3">
+                        <div class="mr-3">服務信箱</div>
+                        <div><a href="mailto:servicedesk@unixecure.com.tw" class="footer-mail">servicedesk@unixecure.com.tw</a></div>
+                    </div>
+                    <div class="d-flex flex-column flex-lg-row mb-3">
+                        <div class="mr-3">臺北辦公室</div>
+                        <div class="mr-3">114 臺北市內湖區基湖路 35 巷 13 號巴黎科技大樓 8 樓 <a href="https://goo.gl/maps/LDBJQvJMV3gkNSGAA" target="_blank" class="ml-2 link-warning"><i class="fa-sharp fa-solid fa-location-dot"></i></a></div>
+                        <div>電話：02-8798-6088</div>
+                    </div>
+                    <div class="d-flex flex-column flex-lg-row mb-3">
+                        <div class="mr-3">臺中辦公室</div>
+                        <div class="mr-3">407 臺中市西屯區台灣大道 3 段 660 號 6 樓之 3 <a href="https://goo.gl/maps/8FYsL5VeEQhXjuxH6" target="_blank" class="ml-2 link-warning"><i class="fa-sharp fa-solid fa-location-dot"></i></a></div>
+                        <div>電話：04-24523928 分機 300、301、302</div>
+                    </div>
+                    <div class="d-flex flex-column flex-lg-row mb-3">
+                        <div class="mr-3">臺南辦公室</div>
+                        <div class="mr-3">711 臺南市歸仁區歸仁十三路一段６號 3 樓 B309 室 <a href="https://goo.gl/maps/SK5XkyW9DXzEFPx39" target="_blank" class="ml-2 link-warning"><i class="fa-sharp fa-solid fa-location-dot"></i></a></div>
+                        <div>電話：06-3033-018</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex flex-column flex-md-row justify-content-between">
+                        <a href="copyright-privacy.html" class="copyright">著作權及隱私權聲明</a>
+                        <div class="text-primary-50"><span class="text-primary-50 mr-3">精誠集團</span>智慧資安科技股份有限公司 © <span class="year">2023</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer ends -->
+
+    <!-- JavaScript -->
+    <script src="./assets/javascript/main.js"></script>
+</body>
+</html>

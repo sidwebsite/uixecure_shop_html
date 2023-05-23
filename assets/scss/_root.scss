@@ -1,0 +1,21 @@
+:root {
+    @each $name, $color in $theme-colors {
+        --#{$name}: #{$color};
+    }
+    --alarm: #{$alarm};
+    // primary
+    @each $name, $color in $colors {
+        --#{$name}: #{$color};
+    }
+    --base-transition: #{$base-transition};
+    --base-box-shadow: #{$base-box-shadow};
+    --base-btn-box-shadow: #{$base-btn-box-shadow};
+    --base-border-radius: #{$base-border-radius};
+    --breadcrumb-divider: #{$breadcrumb-divider};
+    --line-height-base: #{$line-height-base};
+    --transparent: #{$transparent};    
+    --status-safe: #{$status-safe};
+    --operate-blue: #{$operate-blue};
+    --operate-primary: #{$operate-primary};
+    --operate-orangered: #{$operate-orangered};
+}
