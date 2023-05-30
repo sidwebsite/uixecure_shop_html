@@ -13,7 +13,7 @@
     background-position: 0 0;
 }
 .content {    
-    padding-top: 64px;
+    padding-top: 124px;
     padding-bottom: 110px;
 }
 .sign_up {
@@ -24,6 +24,9 @@
     background-color: var(--white);
     border: 1px solid var(--gray-200);
     border-radius: var(--base-border-radius);
+}
+#eye-password {
+    cursor: pointer;
 }
 .describe {
     font-size: toRem(12px);
@@ -136,5 +139,17 @@
                 };
             }
         }
+    }
+}
+// servicepolicy
+.servicepolicy {
+    p {
+        line-height: 28px;
+    }
+}
+.privacy {
+    p {
+        font-size: toRem(16px);
+        line-height: 28px;
     }
 }

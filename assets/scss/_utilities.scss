@@ -155,42 +155,6 @@ $utilities:	(
 .border-bottom {
     border-bottom: 1px solid var(--gray-200);
 }
-.list-unstyled {
-    list-style: none;
-    padding-left: 0;
-    li {
-        line-height: 1.5;
-    }
-}
-.list-style-type-decimal {
-    list-style-type: decimal !important;
-    padding-left: 20px;
-    li {
-        line-height: 24px;
-    }
-}
-.list-style-type-disc {
-    list-style-type: disc !important;
-    padding-left: 20px;
-    li {
-        line-height: 24px;
-    }
-}
-.list-style-type-custom-circle {
-    list-style: none;
-    padding-left: 0;
-    li {
-        position: relative;
-        padding-left: 18px;
-        line-height: 1.5;
-        &::before {
-            content: "";
-			@include position(12px, 1px, 2px, 2px);
-            border-radius: 50%;
-            background-color: var(--gray-800);
-        }
-    }
-}
 .rounded-0 {
     border-radius: 0 !important;
 }

@@ -17,15 +17,31 @@
                     <img src="./assets/images/logo.png" alt="uixecure會員網logo">
                 </a>
             </div>
-            <div class="navbar d-flex justify-content-between">
-                <ul>
+            <div class="navbar">
+                <ul class="menu">
                     <li><a href="https://www.unixecure.com/tw/index" target="_blank">智慧資安入口網</a></li>
                     <li><a href="#">儀表板</a></li>
                     <li><a href="product_solutions.html">產品方案列表</a></li>
-                    <li><a href="product_forum.html">產品問題討論</a></li>
+                    <li><a href="support-center.html">支援中心</a></li>
+                    <li><a href="#" class="language-phone"><span class="mr-3">繁體中文</span><i class="fa-solid fa-globe"></i></a>
+                        <ul class="language-menu">
+                            <li><a href="#">繁體中文</a></li>
+                            <li><a href="#">English</a></li>
+                            <li><a href="#">日本語</a></li>
+                        </ul>
+                    </li>
                 </ul>
-                </ul>
-                <a href="login.html" class="sign_up">登入/註冊</a>
+                <ul>
+                    <li><a href="login.html" class="sign_up">登入/註冊</a></li>
+                    <li class="d-lg-block d-none"><a href="#" class="btn language hide fa-solid fa-globe"></a>
+                        <ul class="dropdown">
+                            <li class="active"><a href="#">繁體中文</a></li>
+                            <li><a href="#">English</a></li>
+                            <li><a href="#">日本語</a></li>
+                        </ul>
+                    </li>
+                    <li class="d-block d-lg-none"><button type="button" class="btn bars"><i class="fa-solid fa-bars"></i></button></li>
+                </ul>                
             </div>
         </nav>
     </header>
@@ -51,8 +67,8 @@
                             <label for="" class="form-label">密碼</label>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                                <input type="password" class="form-control" id="" placeholder="請輸入密碼">
-                                <span class="input-group-text" id="eye-password"><i class="fa-solid fa-eye-slash text-gray-400"></i></span>
+                                <input type="password" class="form-control" id="password" placeholder="請輸入密碼">
+                                <span class="input-group-text fa-solid fa-eye-slash text-gray-400" id="eye-password"></span>
                             </div>
                         </div>
                         <div class="text-center mb-5">
@@ -64,11 +80,11 @@
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
                                 <a href="sign_up.html" class="link-outline-primary fw-bold mr-3">註冊會員</a>
-                                <a href="#" class="link-outline-gray fw-bold">帳號啟用</a>
+                                <a href="account_activation.html" class="link-outline-gray fw-bold">帳號啟用</a>
                             </div>
                             <div>
-                                <a href="#" class="link-outline-gray fw-bold mr-3">忘記密碼</a>
-                                <button type="button" class="btn btn-fill-primary-200">登入</button>
+                                <a href="forgot.html" class="link-outline-gray fw-bold mr-3">忘記密碼</a>
+                                <button type="button" id="signIn-btn" class="btn btn-fill-primary-200">登入</button>
                             </div>
                         </div>
                     </form>
@@ -83,9 +99,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center">
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
                         <div class="mb-3">
-                            <img src="./assets/images/logo.png" alt="uixecure logo">
+                            <img src="./assets/images/footer-logo.png" alt="uixecure logo">
                         </div>
                         <div class="shart">
                             <a href="https://www.youtube.com/channel/UC6VCxEoyhbVVuzyUY3hQmEA/featured" target="_blank"><i class="fa-brands fa-youtube"></i></a>
@@ -96,7 +112,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="d-flex  flex-column flex-lg-row mb-3">
+                    <div class="d-flex  flex-column flex-md-row mb-3">
                         <div class="mr-3">服務信箱</div>
                         <div><a href="mailto:servicedesk@unixecure.com.tw" class="footer-mail">servicedesk@unixecure.com.tw</a></div>
                     </div>
@@ -121,7 +137,7 @@
                 <div class="col-12">
                     <div class="d-flex flex-column flex-md-row justify-content-between">
                         <a href="copyright-privacy.html" class="copyright">著作權及隱私權聲明</a>
-                        <div class="text-primary-50"><span class="text-primary-50 mr-3">精誠集團</span>智慧資安科技股份有限公司 © <span class="year">2023</span></div>
+                        <div class="text-primary-50"><span class="text-primary-50 mr-3">精誠集團</span>智慧資安科技股份有限公司 © {{ year }}</div>
                     </div>
                 </div>
             </div>
@@ -131,5 +147,6 @@
 
     <!-- JavaScript -->
     <script src="./assets/javascript/main.js"></script>
+    <script src="./assets/javascript/login.js"></script>
 </body>
 </html>

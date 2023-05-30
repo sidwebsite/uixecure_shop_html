@@ -1,12 +1,18 @@
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 60px;
     width: 100%;
-    padding-right: 46px;
+    padding: {
+        left: 40px;
+        right: 40px;
+    };   
+    z-index: 999;
     > nav {
         height: 100%;
     }
     .logo {
-        margin-left: 40px;
         margin-right: 40px;
         img {
             width: 114px;
@@ -16,5 +22,13 @@
 .sign-in {
     a:not(:first-child) {
         font-size: toRem(16px);
+    }
+}
+@include media-breakpoint-down(md) {
+    .header {
+        padding: {
+            left: 24px;
+            right: 24px;
+        };
     }
 }

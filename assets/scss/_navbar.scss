@@ -1,13 +1,11 @@
 .navbar {
     width: 100%;
-    > ul {
-        list-style: none;
-        display: flex;          
+    display: flex;
+    justify-content: space-between;
+    > ul.menu {
+        display: flex;        
         > li {
-            padding-right: 60px;
-            &:last-child {
-                padding-right: 0;
-            }
+            padding-left: 60px;
             a {
                 color: var(--gray-200);
                 &:hover {
@@ -19,6 +17,152 @@
                     color: var(--primary-400);
                 }
             }
+            &:first-child {
+                padding-left: 0;
+            }
+            .language-phone {
+                border-top: 1px solid var(--gray-200);
+                text-align: center;
+                padding: {
+                    top: 20px;
+                    bottom: 20px;
+                };
+                margin: {
+                    left: 24px;
+                    right: 24px;
+                };
+                display: none;
+                & + .dropdown-menu {
+                    display: none;
+                }
+            }
+            .language-menu {
+                background-color: var(--gray-50);
+                list-style: none;
+                display: none;
+                a {
+                    width: 100%;
+                    color: var(--gray-800);
+                    text-align: center;
+                    padding: 20px 24px;
+                }
+                &.active {
+                    display: block;
+                }
+            }
         }  
+    }    
+    > ul {
+        display: flex;
+        list-style: none;
+        > li {
+            padding-left: 25px;
+            &:last-child {
+                padding-right: 0;
+            }
+            .sign_up {
+                color: var(--primary-200);
+                transition: var(--base-transition);
+                &:hover {
+                    color: var(--primary-400);
+                }
+            }
+            .language, .bars {
+                background-color: var(--transparent);
+                color: #A5A8BF;
+                position: relative;
+                font-size: toRem(16px);
+                transition: var(--base-transition);
+                &:hover {
+                    color: var(--primary);
+                }
+            }     
+            ul.dropdown {
+                list-style: none;
+                box-shadow: 0px 0px 10px rgba($gray-800, 0.1);
+                position: absolute;
+                right: 10px;
+                margin-top: 15px;
+                z-index: 10;
+                width: 200px;
+                > li {
+                    a {
+                        width: 100%; 
+                        text-align: center;
+                        font-size: toRem(16px);
+                        padding: {
+                            top: 16px;
+                            bottom: 16px;
+                        };
+                        transition: var(--base-transition); 
+                        background-color: var(--white); 
+                        color: var(--gray-800);
+                        &:hover {
+                            background-color: var(--gray-100);
+                            color: var(--gray-800);
+                        }
+                    }
+                }
+                li.active {                 
+                    a {
+                        color: var(--primary);
+                        font-weight: $font-weight-bold;
+                    }
+                }
+            }   
+            .hide + ul.dropdown {
+                display: none;
+                opacity: 0;
+                transition: var(--base-transition); 
+            }
+            .show + ul.dropdown {
+                display: block;
+                opacity: 1;
+                transition: var(--base-transition); 
+            }             
+        }
     }
 }
+@include media-breakpoint-down(md) {
+    .navbar {
+        justify-content: flex-end;
+        > ul {
+            padding-left: 0;
+        }
+        > ul.menu {
+            display: block;
+            position: absolute;
+            top: 60px;
+            left: -100%;
+            height: 100vh;
+            background-color: var(--gray-800);
+            width: 100%;
+            z-index: 100;
+            padding: {
+                top: 20px;
+                bottom: 20px;
+            };
+            flex-flow: column;
+            transition: .3s ease-in;
+            > li {
+                width: 100%;
+                padding: 20px 0;
+                a {
+                    font-size: toRem(20px);
+                    padding: {
+                        left: 24px;
+                        right: 24px;
+                    };
+                }
+                .language-phone {
+                    display: block;
+                }
+            }            
+        }        
+        > ul.menu-show {
+            left: 0;
+            transition: .3s ease-in;
+        }
+    }
+}
+

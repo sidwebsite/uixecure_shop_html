@@ -115,3 +115,10 @@
         color: var(--primary);
     }
 }
+.link-warning {
+    color: var(--secondary-500);
+    transition: var(--base-transition);
+    &:hover {
+        color: var(--secondary-700);
+    }
+}
