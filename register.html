@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="uixecureShopApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>註冊會員–uniXecure智慧資安科技</title>
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/style.min.css">
+    <!-- angularjs -->
+    <script src="assets/plugins/angular/angular.min.js"></script>
+    <script defer src="assets/javascript/main.js"></script>
+</head>
+<body>
+    <!-- header starts -->
+    <header class="header bg-gray-800" ng-controller="headerController"> 
+        <nav class="d-flex align-items-center">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="uixecure會員網logo">
+                </a>
+            </div>
+            <div class="navbar">
+                <ul class="menu">
+                    <li><a href="https://www.unixecure.com/tw/index" target="_blank">智慧資安入口網</a></li>
+                    <!-- <li><a href="#">儀表板</a></li> -->
+                    <li><a href="product/02_product_solutions.html">產品方案列表</a></li>
+                    <li><a href="support/03_support.html">支援中心</a></li>
+                    <li><a href="#" class="language-phone"><span class="mr-3" ng-click="languagePhoneToggle()">{{language[languageIndex]}}</span><i class="fa-solid fa-globe"></i></a>
+                        <ul class="language-menu" ng-class="languagePhone ? 'show' : 'hide'">
+                            <li ng-repeat="li in language" ng-class="{'active' : languageIndex == $index}"><a href="#" ng-click="languageFun($index)">{{li}}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="login.html" class="sign_up">登入/註冊</a></li>
+                    <li class="d-lg-block d-none"><a href="#" class="btn language hide fa-solid fa-globe"></a>
+                        <a href="#" class="btn language fa-solid fa-globe" ng-click="languageToggle()"></a>
+                        <ul class="dropdown" ng-class="languageMenu ? 'show' : 'hide'">
+                            <li ng-repeat="li in language" ng-class="{'active' : languageIndex == $index}"><a href="#" ng-click="languageFun($index)">{{li}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="d-block d-lg-none"><button type="button" class="btn bars"><i class="fa-solid fa-bars"></i></button></li>
+                </ul>                
+            </div>
+        </nav>
+    </header>
+    <!-- header ends -->
+    <!-- content starts -->
+    <section class="content sign_up-content-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 sign_up-content p-4">                    
+                    <div class="text-center">
+                        <img src="assets/images/logo_blank.png" alt="uixecure logo">
+                    </div>
+                    <h3 class="text-center mb-3">註冊智慧資安</h3>
+                    <form action="#" class="form-container">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label for="" class="form-label"><span>*</span>帳號</label>
+                                <div class="field">
+                                    <input type="text" class="form-control" placeholder="請輸入帳號">                                    
+                                    <i class="error error-icon fa-solid fa-circle-exclamation"></i>  
+                                    <div class="error error-txt">此欄位不能為空白</div>
+                                </div>
+                                <span class="prompt-text">需包含英文與數字，共 8 個字元以上。</span>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="" class="form-label"><span>*</span>公司名稱</label>
+                                <div class="field">
+                                    <input type="text" class="form-control" placeholder="請輸入公司名稱">
+                                    <i class="error error-icon fa-solid fa-circle-exclamation"></i>  
+                                    <div class="error error-txt">此欄位不能為空白</div>
+                                </div>                                
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="" class="form-label"><span>*</span>密碼</label>
+                                <div class="field">
+                                    <input type="password" id="password" class="form-control" placeholder="請輸入密碼">
+                                    <i class="error error-icon fa-solid fa-circle-exclamation"></i>
+                                    <i class="fa-solid fa-eye-slash text-gray-400 eye-password"></i>
+                                    <div class="error error-txt">此欄位不能為空白</div>
+                                </div>
+                                <span class="prompt-text">需包含英文大小寫、數字與特殊符號，共 8 個字元以上。</span>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="" class="form-label"><span>*</span>確認密碼</label>
+                                <div class="field">
+                                    <input type="password" id="confirmPassword" class="form-control" placeholder="請再輸入一次密碼">
+                                    <i class="error error-icon fa-solid fa-circle-exclamation"></i>  
+                                    <i class="fa-solid fa-eye-slash text-gray-400 eye-password"></i>
+                                    <div class="error error-txt">此欄位不能為空白</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="" class="form-label"><span>*</span>姓名</label>
+                                <div class="field">
+                                    <input type="text" class="form-control" placeholder="請輸入姓名">
+                                    <i class="error error-icon fa-solid fa-circle-exclamation"></i>  
+                                    <div class="error error-txt">此欄位不能為空白</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="" class="form-label"><span>*</span>國家</label>
+                                <div class="field">
+                                    <select class="form-select form-control" id="country">
+                                        <option value="" selected disabled>請選擇國家</option>
+                                        <option value="台灣">台灣</option>
+                                        <option value="日本">日本</option>
+                                        <option value="新加坡">新加坡</option>
+                                        <option value="美國">美國</option>
+                                    </select>
+                                    <i class="error error-icon fa-solid fa-circle-exclamation"></i>  
+                                    <div class="error error-txt">此欄位必須選國家</div>
+                                </div>
+                                <span class="prompt-text">未列入的國家表示尚不在服務範圍，<br />請聯絡 <a href="mailto:servicedesk@unixecure.com">servicedesk@unixecure.com</a></span>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="" class="form-label"><span>*</span>公司統編</label>
+                                <div class="field">
+                                    <input type="text" class="form-control" placeholder="請再輸入公司統編">
+                                    <i class="error error-icon fa-solid fa-circle-exclamation"></i>  
+                                    <div class="error error-txt">此欄位不能為空白</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="" class="form-label"><span>*</span>公司名稱</label>
+                                <div class="field">
+                                    <input type="text" class="form-control" placeholder="請輸入公司名稱">
+                                    <i class="error error-icon fa-solid fa-circle-exclamation"></i>  
+                                    <div class="error error-txt">此欄位不能為空白</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="" class="form-label">部門</label>
+                                <input type="text" class="form-control" placeholder="請輸入部門">
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="" class="form-label">職稱</label>
+                                <input type="text" class="form-control" placeholder="請輸入職稱">
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="" class="form-label"><span>*</span>電話</label>
+                                <div class="field">
+                                    <input type="text" class="form-control" placeholder="請輸入電話">
+                                    <i class="error error-icon fa-solid fa-circle-exclamation"></i>  
+                                    <div class="error error-txt">此欄位不能為空白</div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-12 mb-4">
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" value="我願意收到活動電子報服務" id="edm-option" checked>
+                                    <label class="form-check-label" for="edm-option">我願意收到活動電子報服務</label>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" value="我同意" id="assent-option">
+                                    <label class="form-check-label" for="assent-option">我同意 <a href="privacy.html" class="link-outline-primary fw-bold" target="_blank">隱私權政策</a> 與 <a href="register-agreement.html" class="link-outline-primary fw-bold" target="_blank">會員註冊條款</a></label>
+                                    <span class="text-alarm">*</span>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-4">
+                                <img src="assets/images/reCAPTCHA v2 _checkbox.png" alt="">
+                            </div>
+                            <div class="col-12 mb-4">
+                                <div class="d-sm-flex flex-row-reverse align-items-center justify-content-between">
+                                    <button type="button" class="btn btn-primary w-100 w-sm-auto mb-3 mb-sm-0">註冊會員</button>
+                                    <a href="login.html" class="btn-secondary w-100 w-sm-auto"><i class="fa-sharp fa-solid fa-arrow-left"></i> 回前頁</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>                
+            </div>
+        </div>
+    </section>
+    <!-- content ends -->
+    <!-- footer starts -->
+    <footer class="footer bg-gray-800" ng-include="'footer.html'" ng-controller="footerController"></footer>
+    <!-- footer ends -->
+</body>
+</html>

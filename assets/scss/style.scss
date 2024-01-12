@@ -17,9 +17,9 @@
 @import 'background';
 @import 'form';
 @import 'button';
-@import '_table.scss';
-@import '_list.scss';
-@import '_status.scss';
+@import 'table';
+@import 'list';
+@import 'status';
 @import 'utilities/api';
 @import 'modal';
-@import '_main.scss';
+@import 'main';

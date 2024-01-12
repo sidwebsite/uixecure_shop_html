@@ -3,6 +3,7 @@
     color: var(--white);
     border-radius: 4px;
     font-weight: $font-weight-bold;
+    white-space: nowrap;
     @each $key , $value in $status {
         &.status-#{$key} {
             background-color: $value;

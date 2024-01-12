@@ -1,53 +1,51 @@
-(function(){
-    // navbar javascript
-    const bars = document.querySelector('.bars');
-    const menu = document.querySelector('.menu');
-    bars.addEventListener('click', (e) => {
-        // console.log(e.target.classList)
-        if(e.target.classList[1] === 'fa-bars') {
-            menu.classList.add('menu-show');
-            bars.querySelector('i').classList.remove('fa-bars');
-            bars.querySelector('i').classList.add('fa-xmark');
-        } else {
-            menu.classList.remove('menu-show');
-            bars.querySelector('i').classList.add('fa-bars');
-            bars.querySelector('i').classList.remove('fa-xmark');
-        }
-    })
-    // language phone show/hide
-    const languagePhone = document.querySelector('.language-phone');
-    const languageMenu = document.querySelector('.language-menu');
-    languagePhone.addEventListener('click', () => {
-        languageMenu.classList.toggle('active');
-    })
-    // language show/hide
-    const language = document.querySelector('.language');
-    language.addEventListener('click', (e) => {
-        e.preventDefault(); 
-        language.classList.remove('hide');
-        language.classList.add('show');
-    });
-    document.body.addEventListener('click', (e) => {
-        if(e.target.matches('.language') === false) {
-            language.classList.remove('show');
-            language.classList.add('hide');
-        }
-    });
-    // add or remove active class
-    const languageDropdownLi = document.querySelectorAll('.language + ul.dropdown li');
-    languageDropdownLi.forEach((li, index) => {        
-        li.addEventListener('click', () => {        
-            li.classList.add('active');
-            removeActive(index);
-        });
-    })
-    // remove active 
-    function removeActive(index1) {
-        languageDropdownLi.forEach((item, index2) => {
-            if(index1 !== index2) {
-                item.classList.remove('active');
-            }
-        })
+'use strict';
+const uixecureShopApp = angular.module('uixecureShopApp', []);
+
+uixecureShopApp.controller('headerController', ['$scope', '$document', function ($scope, $document) {
+    // language data
+    $scope.language = ['繁體中文', 'English', '日本語'];
+    // language Menu
+    $scope.languageMenu = false;
+    $scope.languagePhone = false;
+    $scope.languageIndex = 0;
+    $scope.lang = 0;
+    $scope.languageToggle = function() {
+        $scope.languageMenu = !$scope.languageMenu;
     }
-    
-})();
+    $scope.languagePhoneToggle = function() {
+        $scope.languagePhone = !$scope.languagePhone;
+    }
+    $scope.languageFun = function(i) {
+        $scope.languageMenu = !$scope.languageMenu;
+        $scope.languageIndex = i;
+    }
+    // member
+    $scope.memberMenu = false;
+    $scope.memberPhone = false;
+    $scope.memberToggle = function() {
+        $scope.memberMenu = !$scope.memberMenu;
+    }
+    $scope.memberPhoneToggle = function() {
+        $scope.memberPhone = !$scope.memberPhone;
+    }
+    // navbar javascript
+    const bars = $document[0].querySelector(".bars");
+    const menu = $document[0].querySelector(".menu");
+    bars.addEventListener("click", (e) => {
+        // console.log(e.target.classList)
+        if (e.target.classList[1] === "fa-bars") {
+            menu.classList.add("menu-show");
+            bars.querySelector("i").classList.remove("fa-bars");
+            bars.querySelector("i").classList.add("fa-xmark");
+        } else {
+            menu.classList.remove("menu-show");
+            bars.querySelector("i").classList.add("fa-bars");
+            bars.querySelector("i").classList.remove("fa-xmark");
+        }
+    });
+}]);
+
+uixecureShopApp.controller('footerController', ['$scope', function($scope){
+    // 顯示頁尾西元年份
+    $scope.year = new Date().getFullYear();
+}]);

@@ -1,3 +1,9 @@
+%linkStyle {
+    padding: 12px 20px;
+    border-radius: 2px;
+    transition:  var(--base-transition);
+    font-size: toRem(16px);
+}
 .link-member {
     background-image: linear-gradient(to right, #3C49BA , #848DD7);
     color: var(--white) !important;
@@ -13,13 +19,39 @@
         transition: var(--base-transition);
     }
 }
+
 .link-primary {
+    font-size: toRem(16px);
     color: var(--primary);
     transition: var(--base-transition); 
     &:hover {
-        color: var(--primary-800);
+        color: lighten($primary, 20%);
+    }
+    &:active {
+        color: darken($primary, 20%);
+    }
+    &:disabled {
+        color: var(--gray-400);
     }
 }
+.link-text {
+    @extend %linkStyle;
+    color: var(--gray-800);
+    background-color: transparent;
+    text-align: center;
+    &:hover {
+        color: var(--gray-800);
+        background-color: var(--gray-50);
+    }
+    &:active {
+        color: var(--gray-800);
+        background-color: var(--primary-50);
+    }
+    &:disabled {
+        color: var(--gray-400);
+    }
+}
+
 .link-outline-none-primary {
     color: var(--primary);
     transition: var(--base-transition);

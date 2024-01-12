@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="uixecureShopApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uixecure會員入口網</title>
+    <!-- css -->
+    <link rel="stylesheet" href="../assets/css/style.min.css">
+    <!-- angularjs -->
+    <script src="../assets/plugins/angular/angular.min.js"></script>
+    <script defer src="../assets/javascript/main.js"></script>
+</head>
+<body>
+    <!-- header starts -->
+    <header class="header bg-gray-800" ng-controller="headerController">
+        <nav class="d-flex align-items-center">
+            <div class="logo">
+                <a href="../index_login.html">
+                    <img src="../assets/images/logo.png" alt="uixecure會員網logo">
+                </a>
+            </div>
+            <div class="navbar">
+                <ul class="menu">
+                    <li><a href="https://www.unixecure.com/tw/index" target="_blank">智慧資安入口網</a></li>
+                    <li><a href="#">儀表板</a></li>
+                    <li><a href="product_solutions.html">產品方案列表</a></li>
+                    <li><a href="support-center.html">支援中心</a></li>
+                    <li class="d-block d-lg-none">
+                        <a href="#" class="btn-member member ml-4" ng-click="memberPhoneToggle()"><i class="fa-solid fa-user"></i> 會員中心</a>
+                        <ul class="dropdown member-dropdown hide" ng-class="memberPhone ? 'show' : 'hide'">
+                            <li><a href="04_member.html" class="active">使用服務列表</a></li>
+                            <li><a href="04_member_edit.html">會員資料修改</a></li>
+                            <li><a href="04_security_settings.html">安全性設定</a></li>
+                            <li><a href="04_purchase_history.html">購買記錄</a></li>
+                            <li><a href="04_repair_service.html">報修服務</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="language-phone"><span class="mr-3" ng-click="languagePhoneToggle()">{{language[languageIndex]}}</span><i class="fa-solid fa-globe"></i></a>
+                        <ul class="language-menu" ng-class="languagePhone ? 'show' : 'hide'">
+                            <li ng-repeat="li in language" ng-class="{'active' : languageIndex == $index}"><a href="#" ng-click="languageFun($index)">{{li}}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="d-flex align-items-center">
+                    <li class="d-none d-lg-block">
+                        <a href="#" class="btn-member member" ng-click="memberToggle()"><i class="fa-solid fa-user"></i> 會員中心</a>
+                        <ul class="dropdown member-dropdown hide" ng-class="memberMenu ? 'show' : 'hide'">
+                            <li><a href="04_member.html" class="active">使用服務列表</a></li>
+                            <li><a href="04_member_edit.html">會員資料修改</a></li>
+                            <li><a href="04_security_settings.html">安全性設定</a></li>
+                            <li><a href="04_purchase_history.html">購買記錄</a></li>
+                            <li><a href="04_repair_service.html">報修服務</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../shopping/05_shopping_list.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+                    <li class="d-lg-block d-none"><a href="#" class="btn language hide fa-solid fa-globe"></a>
+                        <a href="#" class="btn language fa-solid fa-globe" ng-click="languageToggle()"></a>
+                        <ul class="dropdown" ng-class="languageMenu ? 'show' : 'hide'">
+                            <li ng-repeat="li in language" ng-class="{'active' : languageIndex == $index}"><a href="#" ng-click="languageFun($index)">{{li}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="d-block d-lg-none"><button type="button" class="btn bars"><i class="fa-solid fa-bars"></i></button></li>
+                </ul>                
+            </div>
+        </nav>
+    </header>
+    <!-- header ends -->
+    <!-- content starts -->
+    <section class="member-content-header bg-gray-700 ">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="04_member.html">會員中心</a></li>
+                        <li class="breadcrumb-item active">購買記錄</li>
+                    </ul>
+                    <h1 class="text-white">購買記錄</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content bg-gray-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="member-content-container p-4">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>編號</th>
+                                    <th>購買日期</th>
+                                    <th>產品名稱</th>
+                                    <th>產品名稱</th>
+                                    <th>使用期限</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>2022-01-01</td>
+                                    <td><a href="#" class="link-primary fw-bold">SIVAS 端點弱點評鑑系統</a> </td>
+                                    <td>92,500</td>
+                                    <td>2022-02-01 ~ 2023-01-31</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>2022-01-01</td>
+                                    <td><a href="#" class="link-primary fw-bold">SIVAS 端點弱點評鑑系統</a> </td>
+                                    <td>92,500</td>
+                                    <td>2022-02-01 ~ 2023-01-31</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- content ends -->
+    <!-- footer starts -->
+    <footer class="footer bg-gray-800" ng-include="'../footer_page.html'" ng-controller="footerController"></footer>
+    <!-- footer ends -->
+</body>
+</html>

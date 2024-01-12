@@ -5,6 +5,7 @@ $gray: #999999 !default;
 $white: #fff !default;
 $block: #000 !default;
 $orangered: #e05100 !default;
+$navbarColor: #e1e2e9;
 // theme color interval
 $theme-color-interval: 8% !default;
 // blue 
@@ -52,7 +53,8 @@ $theme-colors: (
     "secondary": $secondary,
 	"white": $white,
 	"block": $block,
-	"orangered": $orangered
+	"orangered": $orangered,
+	"alarm": $alarm
 ) !default;
 // primary colors
 $colors: (
@@ -102,7 +104,7 @@ $grid-gutter-width: 0.75rem;
 // container
 $container-max-width: 1140px;
 $container-max-widths: (
-	sm: 540px,
+	sm: 664px,
 	md: 720px,
 	lg: 960px,
 	xl: 1140px,

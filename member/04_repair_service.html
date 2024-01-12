@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="uixecureShopApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uixecure會員入口網</title>
+    <!-- css -->
+    <link rel="stylesheet" href="../assets/css/style.min.css">
+    <!-- angularjs -->
+    <script src="../assets/plugins/angular/angular.min.js"></script>
+    <script src="../assets/javascript/main.js"></script>
+</head>
+<body>
+    <!-- header starts -->
+    <header class="header bg-gray-800" ng-controller="headerController">
+        <nav class="d-flex align-items-center">
+            <div class="logo">
+                <a href="../index_login.html">
+                    <img src="../assets/images/logo.png" alt="uixecure會員網logo">
+                </a>
+            </div>
+            <div class="navbar">
+                <ul class="menu">
+                    <li><a href="https://www.unixecure.com/tw/index" target="_blank">智慧資安入口網</a></li>
+                    <li><a href="#">儀表板</a></li>
+                    <li><a href="product_solutions.html">產品方案列表</a></li>
+                    <li><a href="support-center.html">支援中心</a></li>
+                    <li class="d-block d-lg-none">
+                        <a href="#" class="btn-member member ml-4" ng-click="memberPhoneToggle()"><i class="fa-solid fa-user"></i> 會員中心</a>
+                        <ul class="dropdown member-dropdown hide" ng-class="memberPhone ? 'show' : 'hide'">
+                            <li><a href="04_member.html" class="active">使用服務列表</a></li>
+                            <li><a href="04_member_edit.html">會員資料修改</a></li>
+                            <li><a href="04_security_settings.html">安全性設定</a></li>
+                            <li><a href="04_purchase_history.html">購買記錄</a></li>
+                            <li><a href="04_repair_service.html">報修服務</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="language-phone"><span class="mr-3" ng-click="languagePhoneToggle()">{{language[languageIndex]}}</span><i class="fa-solid fa-globe"></i></a>
+                        <ul class="language-menu" ng-class="languagePhone ? 'show' : 'hide'">
+                            <li ng-repeat="li in language" ng-class="{'active' : languageIndex == $index}"><a href="#" ng-click="languageFun($index)">{{li}}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="d-flex align-items-center">
+                    <li class="d-none d-lg-block">
+                        <a href="#" class="btn-member member" ng-click="memberToggle()"><i class="fa-solid fa-user"></i> 會員中心</a>
+                        <ul class="dropdown member-dropdown hide" ng-class="memberMenu ? 'show' : 'hide'">
+                            <li><a href="04_member.html" class="active">使用服務列表</a></li>
+                            <li><a href="04_member_edit.html">會員資料修改</a></li>
+                            <li><a href="04_security_settings.html">安全性設定</a></li>
+                            <li><a href="04_purchase_history.html">購買記錄</a></li>
+                            <li><a href="04_repair_service.html">報修服務</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../shopping/05_shopping_list.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+                    <li class="d-lg-block d-none"><a href="#" class="btn language hide fa-solid fa-globe"></a>
+                        <a href="#" class="btn language fa-solid fa-globe" ng-click="languageToggle()"></a>
+                        <ul class="dropdown" ng-class="languageMenu ? 'show' : 'hide'">
+                            <li ng-repeat="li in language" ng-class="{'active' : languageIndex == $index}"><a href="#" ng-click="languageFun($index)">{{li}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="d-block d-lg-none"><button type="button" class="btn bars"><i class="fa-solid fa-bars"></i></button></li>
+                </ul>                
+            </div>
+        </nav>
+    </header>
+    <!-- header ends -->
+    <!-- content starts -->
+    <section class="member-content-header bg-gray-700 ">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="member.html">會員中心</a></li>
+                        <li class="breadcrumb-item active">報修服務</li>
+                    </ul>
+                    <h1 class="text-white">報修服務</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content bg-gray-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="member-content-container p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div class="d-flex align-items-center">
+                                <span class="mr-2">共 43 筆資料，每頁顯示</span>
+                                <div>
+                                    <select class="form-select">
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="50">50</option>
+                                    </select>    
+                                </div>
+                                <span class="ml-2">筆</span>                           
+                            </div>
+                            <button type="button" class="btn btn-fill-primary">新增報修 <i class="fa-solid fa-plus-large"></i></button>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>全稱</th>
+                                    <th>日期</th>
+                                    <th>標題</th>
+                                    <th>使用期限</th>
+                                    <th>狀態</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>R-000156</td>
+                                    <td>2022-01-01</td>
+                                    <td><a href="repair_centont.html" class="link-primary fw-bold">一二三四運作停止，我很著急請問應該怎麼辦？重開機也沒...</a> </td>
+                                    <td>2022-02-01 ~ 2023-01-31</td>
+                                    <td><span class="status status-primary">新問題</span></td>
+                                </tr>
+                                <tr>
+                                    <td>R-000155</td>
+                                    <td>2022-01-01</td>
+                                    <td><a href="#" class="link-primary fw-bold">印表機無法列印</a> </td>
+                                    <td>2022-02-01 ~ 2023-01-31</td>
+                                    <td><span class="status status-secondary">已指派</span></td>
+                                </tr>
+                                <tr>
+                                    <td>R-000155</td>
+                                    <td>2022-01-01</td>
+                                    <td><a href="#" class="link-primary fw-bold">印表機無法列印</a> </td>
+                                    <td>2022-02-01 ~ 2023-01-31</td>
+                                    <td><span class="status status-secondary">處理中</span></td>
+                                </tr>
+                                <tr>
+                                    <td>R-000155</td>
+                                    <td>2022-01-01</td>
+                                    <td><a href="#" class="link-primary fw-bold">SIIVAS 運作停止</a> </td>
+                                    <td>2022-02-01 ~ 2023-01-31</td>
+                                    <td><span class="status status-safe">已解決</span></td>
+                                </tr>
+                                <tr>
+                                    <td>R-000155</td>
+                                    <td>2022-01-01</td>
+                                    <td><a href="#" class="link-primary fw-bold">SIIVAS 運作停止</a> </td>
+                                    <td>2022-02-01 ~ 2023-01-31</td>
+                                    <td><span class="status status-gray">已關閉</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- pagination starts -->
+                        <div id="pagination" class="pagination mt-3">
+                            <button class="pagination-button" id="first-button" title="Previous page" aria-label="Previous page">
+                                <i class="fa-solid fa-angles-left"></i>
+                            </button>
+                            <button class="pagination-button" id="prev-button" title="Previous page" aria-label="Previous page">
+                                <i class="fa-solid fa-angle-left"></i>
+                            </button>
+                            <ul id="pagination-numbers" class="pagination-numbers">
+                                <li class="number">1</li>
+                                <li class="number">2</li>
+                                <li class="number">3</li>
+                                <li class="number">4</li>
+                                <li class="number">5</li>
+                                <li class="number">6</li>
+                            </ul>
+                            <button class="pagination-button" id="next-button" title="Next page" aria-label="Next page">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </button>
+                            <button class="pagination-button" id="last-button" title="Next page" aria-label="Next page">
+                                <i class="fa-solid fa-angles-right"></i>
+                            </button>
+                        </div>
+                        <!-- pagination ends -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- content ends -->
+    <!-- footer starts -->
+    <footer class="footer bg-gray-800" ng-include="'../footer_page.html'" ng-controller="footerController"></footer>
+    <!-- footer ends -->
+</body>
+</html>

@@ -1,3 +1,9 @@
+%btnStyle {
+    padding: 12px 20px;
+    border-radius: 2px;
+    transition:  var(--base-transition);
+    font-size: toRem(16px);
+}
 .btn {
     display: inline-block;
     font-weight: 600;
@@ -10,7 +16,7 @@
     border: none;
     box-shadow: none;
 }
-.btn-primary {
+.btn-member {
     background-image: linear-gradient(to right, #3C49BA , #848DD7);
     color: var(--white) !important;
     padding: 10px 21px;
@@ -22,58 +28,112 @@
         box-shadow: var(--base-btn-box-shadow);
     }
 }
-.btn-fill-primary-200 {
-    background-color: var(--primary-200);
-    color: var(--white);
-    padding: 12px 20px;
-    border-radius: 2px;
-    transition: var(--transparent);
-    font-size: toRem(16px);
-    &:hover {
-        background-color: var(--primary);
-    }
-}
-.btn-fill-primary {
+.btn-primary {
+    @extend %btnStyle;
     background-color: var(--primary);
     color: var(--white);
-    padding: 12px 20px;
-    border-radius: 2px;
-    transition: var(--transparent);
-    font-size: toRem(16px);
+    text-align: center;
     &:hover {
-        background-color: var(--primary-700);
+        color: var(--white);
+        background-color: lighten($primary, 20%);
+    }
+    &:active {
+        color: var(--white);
+        background-color: darken($primary, 20%);
+    }
+    &:disabled {
+        background-color: var(--gray-200);
     }
 }
-.btn-fill-orangered-sm {
-    background-color: var(--orangered);
+.btn-danger {
+    @extend %btnStyle;
+    background-color: var(--alarm);
     color: var(--white);
-    padding: 4px 8px;
-    border-radius: 2px;
-    transition: var(--transparent);
-    font-size: toRem(14px);
+    text-align: center;
     &:hover {
-        background-color: darken($orangered, 5%)
+        color: var(--white);
+        background-color: lighten($alarm, 20%);
+    }
+    &:active {
+        color: var(--white);
+        background-color: darken($alarm, 20%);
+    }
+    &:disabled {
+        background-color: var(--gray-200);
     }
 }
-.btn-fill-orangered {
-    background-color: var(--orangered);
-    color: var(--white);
-    padding: 12px 20px;
-    border-radius: 2px;
-    transition: var(--transparent);
-    font-size: toRem(16px);
+.btn-secondary {
+    @extend %btnStyle;
+    color: var(--gray-800);
+    background-color: transparent;
+    border: 1px solid var(--gray-200);
     &:hover {
-        background-color: darken($orangered, 5%)
+        color: lighten($primary, 20%);
+        border-color: lighten($primary, 20%);
+    }
+    &:active {
+        color: darken($primary, 20%);
+        border-color: darken($primary, 20%);
+    }
+    &:disabled {
+        background-color: var(--gray-200);
+        border-color: var(--gray-400);
+        color: var(--gray-400);
     }
 }
-.btn-account-deletion {
-    background-color: $btn-account-deletion;
-    color: var(--white);
-    padding: 12px 20px;
-    border-radius: 2px;
-    transition: var(--transparent);
-    font-size: toRem(16px);
-    &:hover {
-        background-color: darken($btn-account-deletion, 5%)
-    }
-}
+// .btn-fill-primary-200 {
+//     background-color: var(--primary-200);
+//     color: var(--white);
+//     padding: 12px 20px;
+//     border-radius: 2px;
+//     transition:  var(--base-transition);
+//     font-size: toRem(16px);
+//     &:hover {
+//         color: var(--white);
+//         background-color: var(--primary);
+//     }
+// }
+// .btn-fill-primary {
+//     background-color: var(--primary);
+//     color: var(--white);
+//     padding: 12px 20px;
+//     border-radius: 2px;
+//     transition:  var(--base-transition);
+//     font-size: toRem(16px);
+//     &:hover {
+//         background-color: var(--primary-700);
+//     }
+// }
+// .btn-fill-orangered-sm {
+//     background-color: var(--orangered);
+//     color: var(--white);
+//     padding: 4px 8px;
+//     border-radius: 2px;
+//     transition:  var(--base-transition);
+//     font-size: toRem(14px);
+//     &:hover {
+//         background-color: darken($orangered, 5%)
+//     }
+// }
+// .btn-fill-orangered {
+//     background-color: var(--orangered);
+//     color: var(--white);
+//     padding: 12px 20px;
+//     border-radius: 2px;
+//     transition:  var(--base-transition);
+//     font-size: toRem(16px);
+//     &:hover {
+//         background-color: darken($orangered, 5%)
+//     }
+// }
+// .btn-account-deletion {
+//     background-color: $btn-account-deletion;
+//     color: var(--white);
+//     padding: 12px 20px;
+//     border-radius: 2px;
+//     transition:  var(--base-transition);
+//     font-size: toRem(16px);
+//     &:hover {
+//         background-color: darken($btn-account-deletion, 5%)
+//     }
+// }

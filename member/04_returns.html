@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="uixecureShopApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uixecure會員入口網</title>
+    <!-- css -->
+    <link rel="stylesheet" href="../assets/css/style.min.css">
+    <!-- angularjs -->
+    <script src="../assets/plugins/angular/angular.min.js"></script>
+    <script src="../assets/javascript/main.js"></script>
+</head>
+<body>
+    <!-- header starts -->
+    <header class="header bg-gray-800" ng-controller="headerController">
+        <nav class="d-flex align-items-center">
+            <div class="logo">
+                <a href="../index_login.html">
+                    <img src="../assets/images/logo.png" alt="uixecure會員網logo">
+                </a>
+            </div>
+            <div class="navbar">
+                <ul class="menu">
+                    <li><a href="https://www.unixecure.com/tw/index" target="_blank">智慧資安入口網</a></li>
+                    <li><a href="#">儀表板</a></li>
+                    <li><a href="product_solutions.html">產品方案列表</a></li>
+                    <li><a href="support-center.html">支援中心</a></li>
+                    <li class="d-block d-lg-none">
+                        <a href="#" class="btn-member member ml-4" ng-click="memberPhoneToggle()"><i class="fa-solid fa-user"></i> 會員中心</a>
+                        <ul class="dropdown member-dropdown hide" ng-class="memberPhone ? 'show' : 'hide'">
+                            <li><a href="04_member.html" class="active">使用服務列表</a></li>
+                            <li><a href="04_member_edit.html">會員資料修改</a></li>
+                            <li><a href="04_security_settings.html">安全性設定</a></li>
+                            <li><a href="04_purchase_history.html">購買記錄</a></li>
+                            <li><a href="04_repair_service.html">報修服務</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="language-phone"><span class="mr-3" ng-click="languagePhoneToggle()">{{language[languageIndex]}}</span><i class="fa-solid fa-globe"></i></a>
+                        <ul class="language-menu" ng-class="languagePhone ? 'show' : 'hide'">
+                            <li ng-repeat="li in language" ng-class="{'active' : languageIndex == $index}"><a href="#" ng-click="languageFun($index)">{{li}}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="d-flex align-items-center">
+                    <li class="d-none d-lg-block">
+                        <a href="#" class="btn-member member" ng-click="memberToggle()"><i class="fa-solid fa-user"></i> 會員中心</a>
+                        <ul class="dropdown member-dropdown hide" ng-class="memberMenu ? 'show' : 'hide'">
+                            <li><a href="04_member.html" class="active">使用服務列表</a></li>
+                            <li><a href="04_member_edit.html">會員資料修改</a></li>
+                            <li><a href="04_security_settings.html">安全性設定</a></li>
+                            <li><a href="04_purchase_history.html">購買記錄</a></li>
+                            <li><a href="04_repair_service.html">報修服務</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../shopping/05_shopping_list.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+                    <li class="d-lg-block d-none"><a href="#" class="btn language hide fa-solid fa-globe"></a>
+                        <a href="#" class="btn language fa-solid fa-globe" ng-click="languageToggle()"></a>
+                        <ul class="dropdown" ng-class="languageMenu ? 'show' : 'hide'">
+                            <li ng-repeat="li in language" ng-class="{'active' : languageIndex == $index}"><a href="#" ng-click="languageFun($index)">{{li}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="d-block d-lg-none"><button type="button" class="btn bars"><i class="fa-solid fa-bars"></i></button></li>
+                </ul>                
+            </div>
+        </nav>
+    </header>
+    <!-- header ends -->
+    <!-- content starts -->
+    <section class="member-content-header bg-gray-700 ">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="member.html">會員中心</a></li>
+                        <li class="breadcrumb-item"><a href="#">使用服務列表</a></li>
+                        <li class="breadcrumb-item active">退貨</li>
+                    </ul>
+                    <h1 class="text-white">退貨服務清單</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content bg-gray-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="member-content-container py-3 px-4">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>購買日期</th>
+                                        <th>產品名稱</th>
+                                        <th>數量</th>
+                                        <th>單價 NTD$</th>
+                                        <th>價格 NTD$</th>
+                                        <th>使用期限</th>                                    
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-nowrap">2022-01-01</td>
+                                        <td><a href="#" class="link-primary fw-bold">SIVAS 端點弱點評鑑系統</a></td>
+                                        <td>50</td>
+                                        <td>1,850</td>
+                                        <td>92,500</td>
+                                        <td>1年</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="my-5">
+                            <h3 class="text-center mb-3">退貨聲明</h3>
+                            <p class="mb-4">當您選取 退貨 表示已同意取消此筆交易，智慧資安科技股份有限公司 將執行綠界的線上刷卡服務，刷退此項商品的款項。</p>
+                            <h4 class="mb-3">退貨須知</h4>
+                            <ol class="list-style-type-decimal mb-4">
+                                <li>智慧資安科技股份有限公司 提供的服務皆為電子化型式，並無實體貨物交易之行為，如於 10 天反悔期內需退貨，我們將取消訂單並執行刷退服務，10 天反悔期後將無法再退貨。</li>
+                                <li>訂單成立後可享 10 天反悔期之權益，如您在安裝產品有無法解決的問題，或是對於產品有任何型式的問題造成無法使用此服務，您可在 10 天反悔期內執行退貨服務。</li>
+                                <li>如產品需要 智慧資安科技股份有限公司 的服務授權，我們將以電子化的型式提供在 使用服務列表 功能，此時客戶將無法再執行退貨。</li>
+                                <li>若您對於購買流程、付款方式及退貨方式有疑問，您可直接聯絡服務台servicedesk@unixecure.com.tw。</li>
+                            </ol>
+                            <h4 class="mb-3">特別說明</h4>
+                            <ol class="list-style-type-decimal mb-4">
+                                <li>本公司收到您的訂單後，如有無法接受訂單之異常情形，或您下單後未能完成正常付款，應視為訂單(買賣契約)全部自始不成立或失效，本公司得於合理期間內通知說明拒絕接受訂單。請您重新依需求下單訂購。</li>
+                                <li>取消訂單將執行綠界的刷退功能，刷退後須支付的匯率及稅額，將由消費者自行承擔。執行刷退可能會影響您參加銀行的信用卡活動。</li>
+                                <li>客戶同意退貨由智慧資安代為處理發票及銷貨退回證明單，以加速退款作業。</li>
+                            </ol>
+                            <form action="">
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label for="" class="form-label">退貨原因</label>
+                                        <select class="form-select">
+                                            <option value="" selected>請選擇退貨原因</option>
+                                        </select>
+                                        <span class="prompt-text">有任何問題，歡迎告知我們。</span>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <a href="member.html" class="reploay-link"><i class="fa-sharp fa-solid fa-arrow-left"></i> 回前頁</a>
+                                            <button type="button" class="btn btn-fill-primary">退貨</button>
+                                        </div>                                
+                                    </div>
+                                </div>                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- content ends -->
+    <!-- footer starts -->
+    <footer class="footer bg-gray-800" ng-include="'../footer_page.html'" ng-controller="footerController"></footer>
+    <!-- footer ends -->
+</body>
+</html>

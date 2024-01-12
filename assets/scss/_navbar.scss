@@ -3,18 +3,19 @@
     display: flex;
     justify-content: space-between;
     > ul.menu {
-        display: flex;        
+        display: flex;
+        align-items: center;
         > li {
             padding-left: 60px;
-            a {
-                color: var(--gray-200);
+            > a {
+                color: var(--navbarColor);
                 &:hover {
-                    color: var(--primary-400);
+                    color: var(--primary-200);
                 }
             }
             &.active {
-                a {
-                    color: var(--primary-400);
+                > a {
+                    color: var(--primary-200);
                 }
             }
             &:first-child {
@@ -32,14 +33,22 @@
                     right: 24px;
                 };
                 display: none;
-                & + .dropdown-menu {
-                    display: none;
+                & + .language-menu {
+                    &.show {
+                        display: block;
+                    }
+                    &.hide {
+                        display: none;
+                    }
+                    li.active a {
+                        color: var(--primary);
+                    }
                 }
             }
             .language-menu {
                 background-color: var(--gray-50);
                 list-style: none;
-                display: none;
+                // display: none;
                 a {
                     width: 100%;
                     color: var(--gray-800);
@@ -57,6 +66,7 @@
         list-style: none;
         > li {
             padding-left: 25px;
+            position: relative;
             &:last-child {
                 padding-right: 0;
             }
@@ -69,14 +79,14 @@
             }
             .language, .bars {
                 background-color: var(--transparent);
-                color: #A5A8BF;
+                color: var(--primary-200);
                 position: relative;
                 font-size: toRem(16px);
                 transition: var(--base-transition);
                 &:hover {
                     color: var(--primary);
                 }
-            }     
+            }
             ul.dropdown {
                 list-style: none;
                 box-shadow: 0px 0px 10px rgba($gray-800, 0.1);
@@ -85,6 +95,10 @@
                 margin-top: 15px;
                 z-index: 10;
                 width: 200px;
+                &.member-dropdown {
+                    right: auto;
+                    top: 30px;
+                }
                 > li {
                     a {
                         width: 100%; 
@@ -97,7 +111,7 @@
                         transition: var(--base-transition); 
                         background-color: var(--white); 
                         color: var(--gray-800);
-                        &:hover {
+                        &:hover, &.active {
                             background-color: var(--gray-100);
                             color: var(--gray-800);
                         }
@@ -110,12 +124,12 @@
                     }
                 }
             }   
-            .hide + ul.dropdown {
+            .hide {
                 display: none;
                 opacity: 0;
                 transition: var(--base-transition); 
             }
-            .show + ul.dropdown {
+            .show {
                 display: block;
                 opacity: 1;
                 transition: var(--base-transition); 
@@ -144,6 +158,7 @@
             };
             flex-flow: column;
             transition: .3s ease-in;
+            overflow-y: auto;
             > li {
                 width: 100%;
                 padding: 20px 0;
@@ -163,6 +178,21 @@
             left: 0;
             transition: .3s ease-in;
         }
+        ul.dropdown.member-dropdown {
+            position: sticky;
+            width: 100%;
+            > li a {
+                text-align: left;
+            }
+        }
     }
 }
 
+.menu-right {
+    a {
+        color: var(--primary-200);;
+        &:hover {
+            color: var(--primary);
+        }
+    }
+}

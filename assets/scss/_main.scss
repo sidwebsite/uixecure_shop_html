@@ -15,6 +15,7 @@
 .content {    
     padding-top: 124px;
     padding-bottom: 110px;
+    min-height: 100vh;
 }
 .sign_up {
     color: var(--primary-200);
@@ -36,7 +37,7 @@
 // member
 .member-content-header {
     padding: {
-        top: 24px;
+        top: 80px;
         bottom: 32px;
     };
     overflow: hidden;
@@ -54,8 +55,11 @@
     border-radius: var(--base-border-radius);
 }
 .operate {
-    a:not(:last-child) {
-        margin-right: 15px;
+    a {
+        white-space: nowrap;
+        &:not(:last-child) {
+            margin-right: 15px;
+        }
     }
 }
 .statement-block {
@@ -151,5 +155,23 @@
     p {
         font-size: toRem(16px);
         line-height: 28px;
+    }
+}
+.timeOut {
+    border: 1px solid var(--gray-100);
+    color: var(--gray-400);
+    padding: 12px 20px;
+}
+@include media-breakpoint-down(md) {
+    .sign_up-content-bg {
+        background-image: none;
+    }
+    .login, .sign_up-content {
+        border: 0;
+        border-radius: 0;
+    }
+    .login-btn {
+        margin-top: 15px;
+        width: 100%;
     }
 }

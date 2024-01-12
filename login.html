@@ -1,43 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="uixecureShopApp">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>登入–uniXecure智慧資安科技</title>
     <!-- css -->
-    <link rel="stylesheet" href="./assets/css/style.min.css">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+    <!-- angularjs -->
+    <script src="assets/plugins/angular/angular.min.js"></script>
+    <script src="assets/javascript/main.js"></script>
+    <!-- sweetalert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- login -->
+    <script src="assets/javascript/login.js"></script>
+    
 </head>
 <body>
     <!-- header starts -->
-    <header class="header bg-gray-800">
+    <header class="header bg-gray-800" ng-controller="headerController">
         <nav class="d-flex align-items-center">
             <div class="logo">
                 <a href="index.html">
-                    <img src="./assets/images/logo.png" alt="uixecure會員網logo">
+                    <img src="assets/images/logo.png" alt="uixecure會員網logo">
                 </a>
             </div>
             <div class="navbar">
                 <ul class="menu">
                     <li><a href="https://www.unixecure.com/tw/index" target="_blank">智慧資安入口網</a></li>
-                    <li><a href="#">儀表板</a></li>
-                    <li><a href="product_solutions.html">產品方案列表</a></li>
-                    <li><a href="support-center.html">支援中心</a></li>
-                    <li><a href="#" class="language-phone"><span class="mr-3">繁體中文</span><i class="fa-solid fa-globe"></i></a>
-                        <ul class="language-menu">
-                            <li><a href="#">繁體中文</a></li>
-                            <li><a href="#">English</a></li>
-                            <li><a href="#">日本語</a></li>
+                    <!-- <li><a href="#">儀表板</a></li> -->
+                    <li><a href="product/02_product_solutions.html">產品方案列表</a></li>
+                    <li><a href="support/03_support.html">支援中心</a></li>
+                    <li><a href="#" class="language-phone"><span class="mr-3" ng-click="languagePhoneToggle()">{{language[languageIndex]}}</span><i class="fa-solid fa-globe"></i></a>
+                        <ul class="language-menu" ng-class="languagePhone ? 'show' : 'hide'">
+                            <li ng-repeat="li in language" ng-class="{'active' : languageIndex == $index}"><a href="#" ng-click="languageFun($index)">{{li}}</a></li>
                         </ul>
                     </li>
                 </ul>
                 <ul>
                     <li><a href="login.html" class="sign_up">登入/註冊</a></li>
                     <li class="d-lg-block d-none"><a href="#" class="btn language hide fa-solid fa-globe"></a>
-                        <ul class="dropdown">
-                            <li class="active"><a href="#">繁體中文</a></li>
-                            <li><a href="#">English</a></li>
-                            <li><a href="#">日本語</a></li>
+                        <a href="#" class="btn language fa-solid fa-globe" ng-click="languageToggle()"></a>
+                        <ul class="dropdown" ng-class="languageMenu ? 'show' : 'hide'">
+                            <li ng-repeat="li in language" ng-class="{'active' : languageIndex == $index}"><a href="#" ng-click="languageFun($index)">{{li}}</a></li>
                         </ul>
                     </li>
                     <li class="d-block d-lg-none"><button type="button" class="btn bars"><i class="fa-solid fa-bars"></i></button></li>
@@ -47,106 +52,64 @@
     </header>
     <!-- header ends -->
     <!-- content starts -->
-    <section class="content sign_up-content-bg">
+    <section class="content sign_up-content-bg" ng-controller="loginController">
         <div class="container-sm">
             <div class="row">
                 <div class="col-12 login p-4">                    
                     <div class="text-center">
-                        <img src="./assets/images/logo_blank.png" alt="uixecure logo">
+                        <img src="assets/images/logo_blank.png" alt="uixecure logo">
                     </div>
                     <h3 class="text-center mb-3">登入智慧資安</h3>
-                    <form>
+                    <form id="login" name="login" ng-submit="formLogin()" role="form">
+                        <!-- 帳號 -->
                         <div class="mb-5">
-                            <label for="" class="form-label">帳號</label>
-                            <div class="input-group flex-nowrap">
-                                <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
-                                <input type="text" class="form-control" id="" placeholder="請輸入帳號">
+                            <label for="userName" class="form-label">帳號</label>
+                            <div class="field" ng-class="{'error shake' : login.userName.$dirty && login.userName.$error.required}">
+                                <div class="input-group flex-nowrap">                            
+                                    <input type="text" class="form-control" id="userName" name="userName" ng-model="userName" placeholder="請輸入帳號" required />
+                                    <i class="icon fa-solid fa-user"></i>
+                                    <i class="error error-icon fa-solid fa-circle-exclamation"></i>                                
+                                </div>
+                                <div class="error error-txt">{{error}}</div>
                             </div>
                         </div>
+                        <!-- 密碼 -->
                         <div class="mb-5">
-                            <label for="" class="form-label">密碼</label>
-                            <div class="input-group flex-nowrap">
-                                <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                                <input type="password" class="form-control" id="password" placeholder="請輸入密碼">
-                                <span class="input-group-text fa-solid fa-eye-slash text-gray-400" id="eye-password"></span>
+                            <label for="password" class="form-label">密碼</label>
+                            <div class="field" ng-class="{'error shake' : login.userCode.$dirty && login.userCode.$error.required}">
+                                <div class="input-group flex-nowrap">                                
+                                    <input type="password" class="form-control" id="password" name="userCode" ng-model="userCode" placeholder="請輸入密碼" required>
+                                    <i class="icon fa-solid fa-lock"></i>
+                                    <i class="fa-solid fa-eye-slash text-gray-400 eye-password" id="eye-password"></i>
+                                    <i class="error error-icon fa-solid fa-circle-exclamation"></i>    
+                                </div>
+                                <div class="error error-txt">{{error}}</div>
                             </div>
                         </div>
                         <div class="text-center mb-5">
                             <div class="mb-3">
-                                <img src="./assets/images/reCAPTCHA v2 _checkbox.png" alt="">
+                                <img src="assets/images/reCAPTCHA v2 _checkbox.png" alt="">
                             </div>
-                            <p class="describe">註冊或登入及代表您已同意<a href="#">智慧資安會員服務條款</a>與<a href="#">隱私權政策</a></p>                        
+                            <p class="describe"><span class="d-block d-sm-inline-block">註冊或登入及代表您已同意</span><a href="servicepolicy.html" target="_blank" class="mr-1">智慧資安會員服務條款</a>與<a href="privacy.html" target="_blank" class="ml-1">隱私權政策</a></p>                        
                         </div>
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div>
-                                <a href="sign_up.html" class="link-outline-primary fw-bold mr-3">註冊會員</a>
-                                <a href="account_activation.html" class="link-outline-gray fw-bold">帳號啟用</a>
+                        <div class="d-sm-flex align-items-center justify-content-between">
+                            <div class="mb-3 mb-sm-0 text-center">
+                                <a href="register.html" class="link-primary fw-bold mr-0 mr-sm-3 mb-3 mb-sm-0 d-sm-inline-block d-block">註冊會員</a>
+                                <a href="account_activation.html" class="link-text fw-bold d-sm-inline-block d-block">帳號啟用</a>
                             </div>
-                            <div>
-                                <a href="forgot.html" class="link-outline-gray fw-bold mr-3">忘記密碼</a>
-                                <button type="button" id="signIn-btn" class="btn btn-fill-primary-200">登入</button>
+                            <div class="text-center">
+                                <a href="forgot.html" class="link-text fw-bold mr-0 mr-sm-3">忘記密碼</a>
+                                <button type="button" id="loginBtn" ng-disabled="login.$invalid" class="btn btn-primary d-sm-inline-block d-block">登入</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-            
         </div>
     </section>
     <!-- content ends -->
     <!-- footer starts -->
-    <footer class="footer bg-gray-800">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-                        <div class="mb-3">
-                            <img src="./assets/images/footer-logo.png" alt="uixecure logo">
-                        </div>
-                        <div class="shart">
-                            <a href="https://www.youtube.com/channel/UC6VCxEoyhbVVuzyUY3hQmEA/featured" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-                            <a href="https://www.facebook.com/uniXecure/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                        </div>
-                    </div>                    
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="d-flex  flex-column flex-md-row mb-3">
-                        <div class="mr-3">服務信箱</div>
-                        <div><a href="mailto:servicedesk@unixecure.com.tw" class="footer-mail">servicedesk@unixecure.com.tw</a></div>
-                    </div>
-                    <div class="d-flex flex-column flex-lg-row mb-3">
-                        <div class="mr-3">臺北辦公室</div>
-                        <div class="mr-3">114 臺北市內湖區基湖路 35 巷 13 號巴黎科技大樓 8 樓 <a href="https://goo.gl/maps/LDBJQvJMV3gkNSGAA" target="_blank" class="ml-2 link-warning"><i class="fa-sharp fa-solid fa-location-dot"></i></a></div>
-                        <div>電話：02-8798-6088</div>
-                    </div>
-                    <div class="d-flex flex-column flex-lg-row mb-3">
-                        <div class="mr-3">臺中辦公室</div>
-                        <div class="mr-3">407 臺中市西屯區台灣大道 3 段 660 號 6 樓之 3 <a href="https://goo.gl/maps/8FYsL5VeEQhXjuxH6" target="_blank" class="ml-2 link-warning"><i class="fa-sharp fa-solid fa-location-dot"></i></a></div>
-                        <div>電話：04-24523928 分機 300、301、302</div>
-                    </div>
-                    <div class="d-flex flex-column flex-lg-row mb-3">
-                        <div class="mr-3">臺南辦公室</div>
-                        <div class="mr-3">711 臺南市歸仁區歸仁十三路一段６號 3 樓 B309 室 <a href="https://goo.gl/maps/SK5XkyW9DXzEFPx39" target="_blank" class="ml-2 link-warning"><i class="fa-sharp fa-solid fa-location-dot"></i></a></div>
-                        <div>電話：06-3033-018</div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
-                        <a href="copyright-privacy.html" class="copyright">著作權及隱私權聲明</a>
-                        <div class="text-primary-50"><span class="text-primary-50 mr-3">精誠集團</span>智慧資安科技股份有限公司 © {{ year }}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <footer class="footer bg-gray-800" ng-include="'footer.html'" ng-controller="footerController"></footer>
     <!-- footer ends -->
-
-    <!-- JavaScript -->
-    <script src="./assets/javascript/main.js"></script>
-    <script src="./assets/javascript/login.js"></script>
 </body>
 </html>
