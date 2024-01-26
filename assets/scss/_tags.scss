@@ -1,0 +1,16 @@
+
+@each $nane, $color in $status {
+    .tag-#{$nane} {
+        cursor: pointer;
+        display: inline-block;
+        border-radius: 4px;
+        padding: 4px 12px;
+        background-color: $color;
+        transition: .3s ease;
+        color: var(--white);
+        font-size: toRem(16px);
+        &:hover {
+            background-color: lighten($color, 20%);
+        }
+    }
+}

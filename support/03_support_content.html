@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="uixecureShopApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uixecure會員入口網</title>
+    <!-- css -->
+    <link rel="stylesheet" href="../assets/css/style.min.css">
+    <!-- angularjs -->
+    <script src="../assets/plugins/angular/angular.min.js"></script>
+    <script src="../assets/javascript/main.js"></script>
+</head>
+<body>
+    <!-- header starts -->
+    <header class="header bg-gray-800" ng-controller="headerController">
+        <nav class="d-flex align-items-center">
+            <div class="logo">
+                <a href="../index_login.html">
+                    <img src="../assets/images/logo.png" alt="uixecure會員網logo">
+                </a>
+            </div>
+            <div class="navbar">
+                <ul class="menu">
+                    <li><a href="https://www.unixecure.com/tw/index" target="_blank">智慧資安入口網</a></li>
+                    <!-- <li><a href="#">儀表板</a></li> -->
+                    <li><a href="../product/02_product_solutions.html">產品方案列表</a></li>
+                    <li><a href="03_support.html">支援中心</a></li>
+                    <li class="d-block d-lg-none">
+                        <a href="#" class="btn-member member ml-4" ng-click="memberPhoneToggle()"><i class="fa-solid fa-user"></i> 會員中心</a>
+                        <ul class="dropdown member-dropdown hide" ng-class="memberPhone ? 'show' : 'hide'">
+                            <li><a href="../member/04_member.html" class="active">使用服務列表</a></li>
+                            <li><a href="../member/04_member_edit.html">會員資料修改</a></li>
+                            <li><a href="../member/04_security_settings.html">安全性設定</a></li>
+                            <li><a href="../member/04_purchase_history.html">購買記錄</a></li>
+                            <li><a href="../member/04_repair_service.html">報修服務</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="language-phone"><span class="mr-3" ng-click="languagePhoneToggle()">{{language[languageIndex]}}</span><i class="fa-solid fa-globe"></i></a>
+                        <ul class="language-menu" ng-class="languagePhone ? 'show' : 'hide'">
+                            <li ng-repeat="li in language" ng-class="{'active' : languageIndex == $index}"><a href="#" ng-click="languageFun($index)">{{li}}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="d-flex align-items-center">
+                    <li class="d-none d-lg-block">
+                        <a href="#" class="btn-member member" ng-click="memberToggle()"><i class="fa-solid fa-user"></i> 會員中心</a>
+                        <ul class="dropdown member-dropdown hide" ng-class="memberMenu ? 'show' : 'hide'">
+                            <li><a href="../member/04_member.html" class="active">使用服務列表</a></li>
+                            <li><a href="../member/04_member_edit.html">會員資料修改</a></li>
+                            <li><a href="../member/04_security_settings.html">安全性設定</a></li>
+                            <li><a href="../member/04_purchase_history.html">購買記錄</a></li>
+                            <li><a href="../member/04_repair_service.html">報修服務</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../shopping/05_shopping_list.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+                    <li class="d-lg-block d-none"><a href="#" class="btn language hide fa-solid fa-globe"></a>
+                        <a href="#" class="btn language fa-solid fa-globe" ng-click="languageToggle()"></a>
+                        <ul class="dropdown" ng-class="languageMenu ? 'show' : 'hide'">
+                            <li ng-repeat="li in language" ng-class="{'active' : languageIndex == $index}"><a href="#" ng-click="languageFun($index)">{{li}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="d-block d-lg-none"><button type="button" class="btn bars"><i class="fa-solid fa-bars"></i></button></li>
+                </ul>                
+            </div>
+        </nav>
+    </header>
+    <!-- header ends -->
+    <!-- content starts -->
+    <section class="content support-content-bg">
+        <!--  -->
+        <div class="support-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="03_support.html">支援中心</a></li>
+                            <li class="breadcrumb-item action">SMARS 啟動失敗</li>
+                        </ul>
+                        <h1 class="mb-5">SMARS 啟動失敗可能的原因</h1>
+                        <!--  -->
+                        <div class="p-4 p-md-5 bg-white rounded-1">
+                            <div class="d-md-flex justify-content-between mb-4">
+                                <div class="text-gray-500 fs-6 mb-3 mb-md-0">上次更新時間 2023 年 1 月 31 日</div>
+                                <div>
+                                    <div class="tag-primary">環境設置</div>
+                                    <div class="tag-primary">SMARS</div>
+                                </div>
+                            </div>
+                            <article>
+                                <p>Creative Cloud 桌面應用程式負責管理 Photoshop、Acrobat 和 Illustrator 等應用程式的安裝作業。如果安裝程序似乎停滯或凍結，修復 Creative Cloud 桌面應用程式通常就能修正此問題。</p>
+                                <p>注意：如果您是初次在 Windows 電腦上安裝應用程式，安裝時間可能會比預期更久。</p>
+                                <ol class="mb-4"> 
+                                    <li>請關閉所有 Adobe 應用程式，並確認您已連上網際網路。</li>
+                                    <li>下載適用於您作業系統的 Creative Cloud 桌面應用程式解除安裝程式。</li>
+                                    <li>Windows</li>
+                                    <li>macOS</li>
+                                    <li>按兩下 .zip 檔案，接著按兩下 Creative Cloud 解除安裝程式。</li>
+                                    <li>(僅限 macOS) 如果畫面出現要您開啟檔案的提示，請選取「開啟」，然後輸入您的 Apple 系統密碼。</li>
+                                    <li>畫面出現提示時，請選取「修復」。</li>
+                                    <li>修復 Creative Cloud 桌面應用程式後，請開啟並安裝應用程式 (系統可能會先提示您登入)。</li>
+                                </ol>
+                                <figure class="mb-4">
+                                    <img src="../assets/images/support_img.png" alt="" class="img-fluid">
+                                </figure>
+                                <ol class="mb-4"> 
+                                    <li>請關閉所有 Adobe 應用程式，並確認您已連上網際網路。</li>
+                                    <li>下載適用於您作業系統的 Creative Cloud 桌面應用程式解除安裝程式。</li>
+                                    <li>Windows</li>
+                                    <li>macOS</li>
+                                    <li>按兩下 .zip 檔案，接著按兩下 Creative Cloud 解除安裝程式。</li>
+                                    <li>(僅限 macOS) 如果畫面出現要您開啟檔案的提示，請選取「開啟」，然後輸入您的 Apple 系統密碼。</li>
+                                    <li>畫面出現提示時，請選取「修復」。</li>
+                                    <li>修復 Creative Cloud 桌面應用程式後，請開啟並安裝應用程式 (系統可能會先提示您登入)。</li>
+                                </ol>
+                            </article>
+                            <!-- 此頁面對您有幫助嗎？ -->
+                            <div class="d-md-flex align-items-center py-4 border-bottom border-top mb-5">                                
+                                <div class="mr-4 fs-6 mb-4 mb-md-0">此頁面對您有幫助嗎？</div>
+                                <div>
+                                    <button type="button" class="btn btn-secondary mr-3">有 <i class="fa-solid fa-face-smile"></i></button>
+                                    <button type="button" class="btn btn-secondary">沒有 <i class="fa-solid fa-face-angry"></i></button>
+                                </div>
+                            </div>
+                            <!-- 相關解決方法 -->
+                            <div class="mb-4">
+                                <h3 class="mb-4"><i class="fa-solid fa-link mr-2 fs-6"></i>相關解決方法</h3>
+                                <div class="mb-3">
+                                    <a href="#" class="link-status-primary"><h4>SMARS 打不開</h4></a>
+                                    <p class="text-gray-500 fs-6">上次更新時間 2023 年 1 月 31 日</p>
+                                </div>
+                                <div class="mb-3">
+                                    <a href="#" class="link-status-primary"><h4>SMARS 打不開</h4></a>
+                                    <p class="text-gray-500 fs-6">上次更新時間 2023 年 1 月 31 日</p>
+                                </div>
+                                <div class="mb-3">
+                                    <a href="#" class="link-status-primary"><h4>SMARS 打不開</h4></a>
+                                    <p class="text-gray-500 fs-6">上次更新時間 2023 年 1 月 31 日</p>
+                                </div>
+                            </div>
+                            <!--  -->
+                            <div class="question-block d-md-flex justify-content-between align-items-center">
+                                <div class="fs-5 fw-bolder mb-4 mb-md-0">仍然無法解決產品相關的疑難雜症嗎？</div>
+                                <div class="text-center">
+                                    <a href="#" class="btn btn-primary mr-3">聯絡我們</a>
+                                    <a href="#" class="btn btn-secondary">我要報修</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--  -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+    </section>
+    <!-- content ends -->
+    <!-- footer starts -->
+    <footer class="footer bg-gray-800" ng-include="'../footer_page.html'" ng-controller="footerController"></footer>
+    <!-- footer ends -->
+</body>
+</html>

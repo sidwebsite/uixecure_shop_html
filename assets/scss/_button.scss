@@ -65,7 +65,7 @@
 .btn-secondary {
     @extend %btnStyle;
     color: var(--gray-800);
-    background-color: transparent;
+    background-color: var(--white);
     border: 1px solid var(--gray-200);
     &:hover {
         color: lighten($primary, 20%);

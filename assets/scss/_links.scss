@@ -144,7 +144,10 @@
     transition: var(--base-transition); 
     text-decoration: none;
     &:hover {
-        color: var(--primary);
+        color: lighten($status-primary, 20%);
+    }
+    &:active {
+        color: darken($status-primary, 20%);
     }
 }
 .link-warning {
@@ -154,3 +157,4 @@
         color: var(--secondary-700);
     }
 }
+

@@ -2,16 +2,16 @@
     display: flex;
     flex-wrap: wrap;
     padding: 0 0;
-    margin-bottom: 1rem;
+    // margin-bottom: 1rem;
     list-style: none;
     .breadcrumb-item {        
         position: relative;
         padding-right: 8px;        
         a {
-            color: var(--gray-500);
+            color: var(--gray-800);
             transition: var(--base-transition);
             &:hover {
-                color: var(--white);
+                color: var(--gray-800);
             }
         }
         &.active {

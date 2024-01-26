@@ -152,26 +152,11 @@ $utilities:	(
 .section {
     padding: 60px 0;
 }
-.border-bottom {
-    border-bottom: 1px solid var(--gray-200);
-}
-.rounded-0 {
-    border-radius: 0 !important;
-}
-.rounded-1 {
-    border-radius: 10px !important;
-}
 .base-box-shadow {
     box-shadow: var(--base-box-shadow) !important;
 }
-.rotate-90 {
-	transform: rotate(90deg);
-}
 .small {
 	font-size: toRem(12px);
-}
-.border {
-	border: $border-width solid var(--block);
 }
 .overflow-hidden {
 	overflow: hidden;
@@ -179,4 +164,9 @@ $utilities:	(
 .prompt-text {
 	font-size: toRem(14px);
 	color: var(--gray-400);
+}
+.img-fluid {
+	width: auto !important;
+	max-width: 100% !important;
+	height: auto !important;
 }
